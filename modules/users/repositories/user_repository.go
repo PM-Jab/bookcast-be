@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"bookcast/modules/entities"
+	"context"
 
 	"github.com/jackc/pgx/v5"
 )
@@ -17,17 +18,16 @@ func NewUsersRepository(db *pgx.Conn) *usersRepo {
 }
 
 func (r *usersRepo) Register(req *entities.UsersRegisterReq) (*entities.UsersRegisterRes, error) {
-	// query := `
-	// INSERT INTO "users"(
-	// 	"username",
-	// 	"password"
-	// )
-	// 	VALUES ($1, $2)
-	// 	RETURNING "id", "username";
-	// `
 
-	// user := new(entities.UsersRegisterRes)
+	var id int8
+	var username string
+	r.Db.QueryRow(context.Background(), "INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id, username",
+		req.Username, req.Password).Scan(&id, &username)
 
-	return nil, nil
+	user := &entities.UsersRegisterRes{
+		Username: username,
+		Id:       id,
+	}
 
+	return user, nil
 }

@@ -18,7 +18,7 @@ func (s *Server) MapHandlers() {
 
 	// Not Found response
 	s.App.Use(func(c *gin.Context) {
-		c.JSON(404, gin.H{
+		c.AbortWithStatusJSON(404, gin.H{
 			"error": "Not Found",
 		})
 	})
