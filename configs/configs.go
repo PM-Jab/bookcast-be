@@ -14,8 +14,8 @@ type PostgreSQL struct {
 	Host     string
 	Port     string
 	Protocol string
-	User     string
-	Pass     string
+	Username string
+	Password string
 	Database string
 	SSLMode  string
 }

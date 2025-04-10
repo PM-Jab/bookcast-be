@@ -12,8 +12,8 @@ func ConnectionURLBuilder(stuff string, cfg *configs.Configs) (string, error) {
 		url = fmt.Sprintf("%s:%s", cfg.App.Host, cfg.App.Port)
 	case "postgresql":
 		url = fmt.Sprintf("postgresql://%s:%s@%s:%s/%s?sslmode=%s",
-			cfg.PostgreSQL.User,
-			cfg.PostgreSQL.Pass,
+			cfg.PostgreSQL.Username,
+			cfg.PostgreSQL.Password,
 			cfg.PostgreSQL.Host,
 			cfg.PostgreSQL.Port,
 			cfg.PostgreSQL.Database,
