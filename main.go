@@ -12,22 +12,6 @@ import (
 )
 
 func main() {
-
-	// urlExample := "postgres://username:password@localhost:5432/database_name"
-	// conn, err := pgx.Connect(context.Background(), "postgresql://postgres.pgtomljzmebxwfvxelvz:dbuITCU1vTGsmkIv@aws-0-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require")
-	// if err != nil {
-	// 	fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-	// 	os.Exit(1)
-	// }
-	// defer conn.Close(context.Background())
-
-	// conn.QueryRow(context.Background(), "SELECT 1").Scan()
-
-	// fmt.Println("Successfully connected to database")
-
-	// fmt.Println(userId)
-
-	// Load dotenv config
 	if err := godotenv.Load(".env"); err != nil {
 		panic(err.Error())
 	}
